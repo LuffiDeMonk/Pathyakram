@@ -3,11 +3,10 @@ import Link from 'next/link';
 import React from 'react'
 
 type UniversityData = {
-    name: string;
-    location: string;
-    established_year: number;
-    affiliation: string;
-    id: string;
+    name: string,
+    location: string,
+    established_year: number,
+    affiliation: string
 }
 
 

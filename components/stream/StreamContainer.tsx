@@ -1,5 +1,7 @@
 import React from 'react'
 import StreamCard from './StreamCard'
+import { streams } from '@/constant'
+import Error from '../Warning'
 
 type StreamData = {
 
@@ -9,19 +11,30 @@ type StreamData = {
 
 }
 
-const getStreamData = async (universityName: string, filter?: string) => {
-    const response = await fetch(`http://localhost:8000/universityStreams?universityName=${universityName}`);
-    if (!response.ok) {
-        throw new Error('No data found for the university')
-    }
-    return response.json()
-}
+// const getStreamData = async (universityName: string, filter?: string) => {
+//     const response = await fetch(`https://jsonkeeper.com/b/YITK/universityStreams?universityName=${universityName}`);
+//     if (!response.ok) {
+//         throw new Error('No data found for the university')
+//     }
+//     return response.json()
+// }
 
 export default async function StreamContainer({ universityName }: { universityName: string[] }) {
-    const streamData: StreamData[] = await getStreamData(universityName[0])
-    if (streamData.length === 0) {
-        return <h2>No data</h2>
+    // const streamData: StreamData[] = await getStreamData(universityName[0])
+    // if (streamData.length === 0) {
+    //     return <h2>No data</h2>
+    // }
+    console.log(universityName[0].replaceAll("%20", ' '))
+
+    let filteredData = streams.filter((item) => item.universityName.toLowerCase() === universityName[0].replaceAll("%20", " ").toLowerCase())
+
+
+    if (filteredData.length === 0) {
+        return (
+            <Error />
+        )
     }
+
     return (
         <>
             <div className='flex flex-col gap-3 md:gap-0 md:flex-row md:items-center md:justify-between'>
@@ -32,12 +45,13 @@ export default async function StreamContainer({ universityName }: { universityNa
             </div>
             <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 mb-8">
                 {
-                    streamData[0].streams.map((item, idx) => (
+                    filteredData[0]?.streams.map((item, idx) => (
                         <React.Fragment key={idx}>
                             <StreamCard stream={item} />
                         </React.Fragment>
                     ))
                 }
+
             </div>
         </>
     )

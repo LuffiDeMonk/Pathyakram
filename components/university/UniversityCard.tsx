@@ -7,7 +7,6 @@ type UniversityProps = {
     location: string;
     established_year: number;
     affiliation: string;
-    id: string;
 }
 
 export default function UniversityCard({ university }: { university: UniversityProps }) {

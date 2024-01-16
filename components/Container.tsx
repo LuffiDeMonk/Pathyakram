@@ -1,5 +1,5 @@
 import React from 'react'
-import BreadCrumb from '../BreadCrumb'
+import BreadCrumb from './BreadCrumb'
 
 export default function Container({ children }: { children: React.ReactElement }) {
     return (

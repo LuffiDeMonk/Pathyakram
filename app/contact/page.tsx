@@ -1,6 +1,6 @@
 import React from 'react'
-import Banner from '../components/Banner'
-import ContactWrapper from '../components/contact/ContactWrapper'
+import ContactWrapper from '../../components/contact/ContactWrapper'
+import Banner from '@/components/Banner'
 
 
 export default function page() {

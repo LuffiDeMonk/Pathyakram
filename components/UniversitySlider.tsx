@@ -5,44 +5,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slide from './Slide';
 
-const SliderContent = [
-    {
-        id: 1,
-        universityName: 'Tribhuwan University',
-        location: 'Kathmandu, Nepal',
-        logo: '/TUlogo.svg'
-    },
-    {
-        id: 2,
-        universityName: 'Kathmandu University',
-        location: 'Kathmandu, Nepal',
-        logo: '/KUlogo.png'
-    },
-    {
-        id: 3,
-        universityName: 'Purwanchal University',
-        location: 'Biratnagar, Nepal',
-        logo: '/PUlogo.png'
-    },
-    {
-        id: 4,
-        universityName: 'Agriculture and Forest University',
-        location: 'Biratnagar, Nepal',
-        logo: '/PUlogo.png'
-    },
-]
-
-type UniversityData = {
-    name: string;
-    location: string;
-    established_year: number;
-    affiliation: string;
-    id: string;
-}
+import { universities } from '@/constant';
 
 
 
-export default function UniversitySlider({ data }: { data: UniversityData[] }) {
+
+
+
+export default function UniversitySlider() {
     var settings = {
         dots: true,
         arrows: false,
@@ -96,8 +66,8 @@ export default function UniversitySlider({ data }: { data: UniversityData[] }) {
             <h1 className="text-xl font-semibold mb-4">Featured Universities</h1>
             <Slider {...settings}>
                 {
-                    data.map((slide) => (
-                        <div key={slide.id} className="pr-4">
+                    universities.map((slide) => (
+                        <div key={slide.established_year} className="pr-4">
                             <Slide slide={slide} />
                         </div>
                     ))

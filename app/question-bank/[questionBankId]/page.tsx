@@ -1,10 +1,10 @@
 'use client'
 
-import ViewIcon from '@/app/components/icons/ViewIcon'
-import Container from '@/app/components/university/Container'
+import ViewIcon from '@/components/icons/ViewIcon'
+import Container from '@/components/Container'
 import React, { useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import PDFViewer from '@/app/components/PDFViewer'
+import PDFViewer from '@/components/PDFViewer'
 
 export default function Page() {
     const [isOpen, setIsOpen] = useState(false)

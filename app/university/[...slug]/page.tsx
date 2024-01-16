@@ -1,8 +1,9 @@
-import Container from '@/app/components/university/Container'
-import StreamContainer from '@/app/components/university/stream/StreamContainer'
-import SemesterContainer from '@/app/components/university/stream/semester/SemesterContainer'
-import SubjectContainer from '@/app/components/university/stream/semester/subject/SubjectContainer'
-import ResourceContainer from '@/app/components/university/stream/semester/subject/resource/ResourceContainer'
+import Container from '@/components/Container'
+import ResourceContainer from '@/components/resource/ResourceContainer'
+import SemesterContainer from '@/components/semester/SemesterContainer'
+import StreamContainer from '@/components/stream/StreamContainer'
+import SubjectContainer from '@/components/subject/SubjectContainer'
+
 import React from 'react'
 
 export default function page({ params }: { params: { slug: string[] } }) {

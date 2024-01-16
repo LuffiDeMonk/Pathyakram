@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
-import Container from '../components/university/Container'
-import UniversityContainer from '../components/university/UniversityContainer'
+import Container from '../../components/Container'
+import UniversityContainer from '../../components/university/UniversityContainer'
 
 export default function page() {
     return (
