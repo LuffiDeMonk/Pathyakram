@@ -63,7 +63,7 @@ export default function UniversitySlider() {
     };
     return (
         <div className='max-w-screen-lg mx-auto px-3 lg:px-0'>
-            <h1 className="text-xl font-semibold mb-4">Featured Universities</h1>
+            <h1 className="text-xl font-semibold text-green-500 mb-4">Featured Universities</h1>
             <Slider {...settings}>
                 {
                     universities.map((slide) => (
