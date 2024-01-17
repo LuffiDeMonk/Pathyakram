@@ -11,7 +11,7 @@ const ResourceLinks = [
     {
         id: 2,
         title: "Question Bank",
-        link: '/question-bank/werf'
+        link: '/question-bank/question-bank-id'
     },
     {
         id: 3,

@@ -3,6 +3,8 @@
 import React from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
+import { Navlinks } from '@/constant'
+
 
 type Props = {
     open: boolean,
@@ -10,29 +12,6 @@ type Props = {
 }
 
 
-const Navlinks = [
-    {
-        id: 1,
-        name: 'Home',
-        link: '/'
-    },
-    {
-        id: 2,
-        name: 'Contact',
-        link: '/contact'
-    },
-    {
-        id: 3,
-        name: 'University',
-        link: '/university'
-    },
-    {
-        id: 4,
-        name: 'Make Request',
-        link: '/notice'
-    },
-
-]
 
 export default function MobileNavigation({ open, setOpen }: Props) {
     return (

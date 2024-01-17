@@ -1,30 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
-const Navlinks = [
-    {
-        id: 1,
-        name: 'Home',
-        link: '/'
-    },
-    {
-        id: 2,
-        name: 'Contact',
-        link: '/contact'
-    },
-    {
-        id: 3,
-        name: 'About',
-        link: '/about'
-    },
-    {
-        id: 4,
-        name: 'Notice',
-        link: '/notice'
-    },
-
-]
+import { Navlinks } from '@/constant'
 
 export default function Footer() {
     return (

@@ -204,3 +204,27 @@ export const subjects = [
         ]
     }
 ]
+
+export const Navlinks = [
+    {
+        id: 1,
+        name: 'Home',
+        link: '/'
+    },
+    {
+        id: 2,
+        name: 'Contact',
+        link: '/contact'
+    },
+    {
+        id: 3,
+        name: 'University',
+        link: '/university'
+    },
+    {
+        id: 4,
+        name: 'Make Request',
+        link: '/request'
+    },
+
+]

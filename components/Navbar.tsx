@@ -2,33 +2,12 @@
 
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import BarIcon from './icons/BarIcon'
 import MobileNavigation from './MobileNavigation'
+import BarIcon from './icons/BarIcon'
+import { Navlinks } from '@/constant'
 
 
-const Navlinks = [
-    {
-        id: 1,
-        name: 'Home',
-        link: '/'
-    },
-    {
-        id: 2,
-        name: 'Contact',
-        link: '/contact'
-    },
-    {
-        id: 3,
-        name: 'University',
-        link: '/university'
-    },
-    {
-        id: 4,
-        name: 'Make Request',
-        link: '/notice'
-    },
 
-]
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)
