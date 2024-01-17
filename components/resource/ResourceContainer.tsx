@@ -6,7 +6,7 @@ const ResourceLinks = [
     {
         id: 1,
         title: 'Syllabus',
-        link: '/syllabus'
+        link: '/syllabus/syllabusId'
     },
     {
         id: 2,
