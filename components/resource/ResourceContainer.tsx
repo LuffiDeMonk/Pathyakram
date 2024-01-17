@@ -11,12 +11,12 @@ const ResourceLinks = [
     {
         id: 2,
         title: "Question Bank",
-        link: '/question'
+        link: '/question-bank/werf'
     },
     {
         id: 3,
         title: 'Notes',
-        link: '/notes'
+        link: '/'
     }
 ]
 

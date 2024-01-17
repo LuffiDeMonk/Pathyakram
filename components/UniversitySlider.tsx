@@ -7,11 +7,6 @@ import Slide from './Slide';
 
 import { universities } from '@/constant';
 
-
-
-
-
-
 export default function UniversitySlider() {
     var settings = {
         dots: true,
