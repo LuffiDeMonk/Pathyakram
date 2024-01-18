@@ -24,7 +24,6 @@ export default async function StreamContainer({ universityName }: { universityNa
     // if (streamData.length === 0) {
     //     return <h2>No data</h2>
     // }
-    console.log(universityName[0].replaceAll("%20", ' '))
 
     let filteredData = streams.filter((item) => item.universityName.toLowerCase() === universityName[0].replaceAll("%20", " ").toLowerCase())
 

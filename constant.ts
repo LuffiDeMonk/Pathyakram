@@ -205,6 +205,17 @@ export const subjects = [
     }
 ]
 
+export const semesters = [
+    'I/I',
+    'I/II',
+    'II/I',
+    'II/II',
+    'III/I',
+    'III/II',
+    'IV/I',
+    'IV/II'
+]
+
 export const Navlinks = [
     {
         id: 1,

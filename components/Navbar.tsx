@@ -14,7 +14,7 @@ export default function Navbar() {
 
     return (
         <nav className={`sticky top-0 z-10 w-full py-4 px-2 transition-colors duration-300 bg-green-600 text-white shadow-xl`}>
-            <section className='max-w-screen-lg mx-auto flex items-center justify-between'>
+            <section className='max-w-screen-lg mx-auto flex items-center justify-between outline-none focus:outline-none'>
                 <Link href='/'>
                     <h1 className="text-2xl font-bold">Pathyakrama</h1>
                 </Link>
