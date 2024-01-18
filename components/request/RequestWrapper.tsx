@@ -21,9 +21,9 @@ type TRequestSchema = z.infer<typeof RequestSchema>
 
 const RequestSchema = z.object({
     subject: z.string().min(1, "Please enter your subject name"),
-    university: z.string().min(1, "Please select your university").nullable(),
-    stream: z.string().min(1, "Please select your stream").nullable(),
-    semester: z.string().min(1, "Please select your semester").nullable()
+    university: z.string().min(1, "Please select your university"),
+    stream: z.string().min(1, "Please enter your stream"),
+    semester: z.string().min(1, "Please select your semester")
 })
 
 export default function RequestWrapper() {
@@ -32,6 +32,7 @@ export default function RequestWrapper() {
     })
 
     const onSubmit = (data: TRequestSchema) => {
+        alert(data)
         reset()
     }
 

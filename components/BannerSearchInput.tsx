@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useMemo } from 'react'
+import React, { useState, useRef } from 'react'
 import useSWR from 'swr'
 import Error from './Warning';
 import Image from 'next/image';
@@ -26,6 +26,7 @@ type UniversityData = {
 
 export default function BannerSearchInput() {
   const [search, setSearch] = useState('')
+  const popupRef = useRef<HTMLDivElement>(null)
 
   // const { data }: { data: UniversityData[] } = useSWR(`/`, fetcher)
 
@@ -37,14 +38,31 @@ export default function BannerSearchInput() {
   let filteredList = universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
 
 
+  //closes the suggestion popup when the user clicks away from the input box
+  const handleInputBlur = () => {
+    popupRef.current?.classList.add('hidden')
+
+  }
+
+  //opens the suggestion popup when the user clicks the input and type on it
+  const handleInputFocus = () => {
+    popupRef.current?.classList.remove('hidden')
+
+  }
+
   return (
     <div className='flex flex-col gap-3'>
       <input type='text' className='w-full sm:w-80 md:w-[40rem] rounded-full py-3 px-6 outline-none focus:outline-none'
         placeholder='Enter your university name'
         onChange={e => setSearch(e.target.value)}
+        onBlur={handleInputBlur}
+        onFocus={handleInputFocus}
       />
+
+      {/* suggestion popup, this will only show when the user starts typing on the input */}
+
       {search.length !== 0 &&
-        <div className="absolute left-1/2 -translate-x-1/2 top-32 w-80 md:w-[40rem] rounded-lg bg-white max-h-52 overflow-y-auto p-4">
+        <div ref={popupRef} className="absolute left-1/2 -translate-x-1/2 top-32 w-80 md:w-[40rem] rounded-lg bg-white max-h-52 overflow-y-auto p-4">
           {filteredList?.map(item => (
             <React.Fragment key={item.location}>
               <Link href={`/university/${item.name}`} className='flex items-center gap-2'>
@@ -59,6 +77,7 @@ export default function BannerSearchInput() {
           ))}
           {search.length !== 0 && filteredList?.length === 0 && <Error height='h-24' />}
         </div>}
+
     </div>
   )
 }
