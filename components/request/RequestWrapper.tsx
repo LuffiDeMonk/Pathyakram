@@ -8,13 +8,8 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 import ChevronDownIcon from '../icons/ChevronDownIcon'
 
-import { universities, streams, semesters } from '@/constant'
+import { universities, semesters } from '@/constant'
 
-type UniversityStream = {
-    universityName: string,
-    universityId: number,
-    streams: string[]
-}
 
 type TRequestSchema = z.infer<typeof RequestSchema>
 
@@ -32,7 +27,7 @@ export default function RequestWrapper() {
     })
 
     const onSubmit = (data: TRequestSchema) => {
-        alert(data)
+        alert(JSON.stringify(data))
         reset()
     }
 

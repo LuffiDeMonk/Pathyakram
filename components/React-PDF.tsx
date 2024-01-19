@@ -32,7 +32,9 @@ export default function ReactPDF() {
         <div className="max-w-screen-lg mx-auto bg-green-400">
             <Document
                 loading={<div className='text-center h-full flex items-center justify-center'><p>Loading</p></div>}
-                file='/sample.pdf'
+                file={{
+                    url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                }}
                 onLoadSuccess={onDocumentLoadSuccess}>
                 <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
                 <p>{pageNumber} / {numPages}</p>

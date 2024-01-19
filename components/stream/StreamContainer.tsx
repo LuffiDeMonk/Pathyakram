@@ -37,20 +37,22 @@ export default async function StreamContainer({ universityName }: { universityNa
     return (
         <>
             <div className='flex flex-col gap-3 md:gap-0 md:flex-row md:items-center md:justify-between'>
-                <h1 className='text-xl font-semibold text-green-500'>Streams</h1>
+                <h1 className='text-xl font-semibold text-green-500'>Faculty</h1>
                 <form>
                     <input type="text" placeholder='Search for available courses' className='px-5 py-2 rounded-full w-full md:w-80 border-2 border-gray-300 outline-none focus:outline-none' />
                 </form>
             </div>
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 mb-8">
-                {
-                    filteredData[0]?.streams.map((item, idx) => (
-                        <React.Fragment key={idx}>
-                            <StreamCard stream={item} />
-                        </React.Fragment>
-                    ))
-                }
+            <div className="min-h-[50vh]">
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 mb-8">
+                    {
+                        filteredData[0]?.streams.map((item, idx) => (
+                            <React.Fragment key={idx}>
+                                <StreamCard stream={item} />
+                            </React.Fragment>
+                        ))
+                    }
 
+                </div>
             </div>
         </>
     )

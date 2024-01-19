@@ -1,11 +1,13 @@
 'use client'
 import React from 'react'
+import Link from 'next/link';
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slide from './Slide';
 
 import { universities } from '@/constant';
+import ArrowRight from './icons/ArrowRight';
 
 export default function UniversitySlider() {
     var settings = {
@@ -58,7 +60,13 @@ export default function UniversitySlider() {
     };
     return (
         <div className='max-w-screen-lg mx-auto px-3 lg:px-0'>
-            <h1 className="text-xl font-semibold text-green-500 mb-4">Featured Universities</h1>
+            <div className="flex items-center justify-between mb-4">
+                <h1 className="text-xl font-semibold text-green-500">Featured Universities</h1>
+                <Link href='/university' className="px-3 py-1.5 bg-green-500 hidden md:flex items-center gap-1 text-white rounded-full">
+                    <p className='text-sm font-semibold'>View More</p>
+                    <ArrowRight />
+                </Link>
+            </div>
             <Slider {...settings}>
                 {
                     universities.map((slide) => (

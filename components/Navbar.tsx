@@ -21,13 +21,11 @@ export default function Navbar() {
 
                 {/* navlnks for desktop menu */}
                 <ul className='hidden md:flex items-center gap-10'>
-                    {
-                        Navlinks.map((item) => (
-                            <Link href={item.link} key={item.id}>
-                                <li className='text-md'>{item.name}</li>
-                            </Link>
-                        ))
-                    }
+
+                    <Link href='/request'>
+                        <li className='text-sm border border-white rounded-full px-4 py-1.5'>Make a request</li>
+                    </Link>
+
                 </ul>
 
                 {/* hamburger icon for mobile devices */}

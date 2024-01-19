@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useMemo } from 'react'
 import useSWR from 'swr'
 import Error from './Warning';
 import Image from 'next/image';
@@ -35,7 +35,7 @@ export default function BannerSearchInput() {
   //   return data?.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
   // }, [data, search])
 
-  let filteredList = universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
+  let filteredList = useMemo(() => universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())), [search])
 
 
   //closes the suggestion popup when the user clicks away from the input box
@@ -62,7 +62,7 @@ export default function BannerSearchInput() {
       {/* suggestion popup, this will only show when the user starts typing on the input */}
 
       {search.length !== 0 &&
-        <div ref={popupRef} className="absolute left-1/2 -translate-x-1/2 top-32 w-80 md:w-[40rem] rounded-lg bg-white max-h-52 overflow-y-auto p-4">
+        <div ref={popupRef} className="absolute left-1/2 -translate-x-1/2 top-48 w-80 md:w-[40rem] rounded-lg bg-white max-h-52 overflow-y-auto p-4">
           {filteredList?.map(item => (
             <React.Fragment key={item.location}>
               <Link href={`/university/${item.name}`} className='flex items-center gap-2'>

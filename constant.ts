@@ -234,7 +234,12 @@ export const Navlinks = [
     },
     {
         id: 4,
-        name: 'Make Request',
+        name: 'Blogs',
+        link: '/blogs'
+    },
+    {
+        id: 5,
+        name: 'Make A Request',
         link: '/request'
     },
 
