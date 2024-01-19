@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useRef, useMemo, useEffect, } from 'react'
 import useSWR from 'swr'
 import Error from './Warning';
 import Image from 'next/image';
@@ -27,42 +27,33 @@ type UniversityData = {
 export default function BannerSearchInput() {
   const [search, setSearch] = useState('')
   const popupRef = useRef<HTMLDivElement>(null)
+  const mainSection = useRef<HTMLDivElement>(null)
 
-  // const { data }: { data: UniversityData[] } = useSWR(`/`, fetcher)
+  useEffect(() => {
+    window.addEventListener('click', (e) => {
+      if (!mainSection.current?.contains(e.target as Node)) {
+        popupRef.current?.classList.add('hidden')
+      }
+    })
+  }, [])
 
-
-  // let filteredList: UniversityData[] = useMemo(() => {
-  //   return data?.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
-  // }, [data, search])
 
   let filteredList = useMemo(() => universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())), [search])
 
 
-  //closes the suggestion popup when the user clicks away from the input box
-  const handleInputBlur = () => {
-    popupRef.current?.classList.add('hidden')
-
-  }
-
-  //opens the suggestion popup when the user clicks the input and type on it
-  const handleInputFocus = () => {
-    popupRef.current?.classList.remove('hidden')
-
-  }
 
   return (
-    <div className='flex flex-col gap-3'>
+    <div className='flex flex-col gap-3' ref={mainSection}>
       <input type='text' className='w-full sm:w-80 md:w-[40rem] rounded-full py-3 px-6 outline-none focus:outline-none'
         placeholder='Enter your university name'
         onChange={e => setSearch(e.target.value)}
-        onBlur={handleInputBlur}
-        onFocus={handleInputFocus}
+        onFocus={() => popupRef.current?.classList.remove('hidden')} //to open the popup when the user clicks inside the input search 
       />
 
       {/* suggestion popup, this will only show when the user starts typing on the input */}
 
       {search.length !== 0 &&
-        <div ref={popupRef} className="absolute left-1/2 -translate-x-1/2 top-48 w-80 md:w-[40rem] rounded-lg bg-white max-h-52 overflow-y-auto p-4">
+        <div ref={popupRef} className={`absolute left-1/2 -translate-x-1/2 top-48 w-80 md:w-[40rem] rounded-lg bg-white max-h-52 overflow-y-auto p-4`}>
           {filteredList?.map(item => (
             <React.Fragment key={item.location}>
               <Link href={`/university/${item.name}`} className='flex items-center gap-2'>
