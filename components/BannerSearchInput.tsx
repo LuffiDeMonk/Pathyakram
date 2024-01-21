@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import Error from './Warning';
 import Image from 'next/image';
 import Link from 'next/link';
-import { universities } from '@/constant';
+import { universities, streams } from '@/constant';
 
 type UniversityData = {
   name: string;
@@ -40,7 +40,9 @@ export default function BannerSearchInput() {
 
   let filteredList = useMemo(() => universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())), [search])
 
+  streams.forEach(element => {
 
+  });
 
   return (
     <div className='flex flex-col gap-3' ref={mainSection}>
@@ -53,7 +55,8 @@ export default function BannerSearchInput() {
       {/* suggestion popup, this will only show when the user starts typing on the input */}
 
       {search.length !== 0 &&
-        <div ref={popupRef} className={`absolute left-1/2 -translate-x-1/2 top-48 w-80 md:w-[40rem] rounded-lg bg-white max-h-52 overflow-y-auto p-4`}>
+        <div ref={popupRef} className={`absolute left-1/2 -translate-x-1/2 top-48 w-80 md:w-[40rem] rounded-lg bg-white max-h-80 shadow-lg overflow-y-auto p-4`}>
+          <h1 className='text-xs text-gray-300'>University</h1>
           {filteredList?.map(item => (
             <React.Fragment key={item.location}>
               <Link href={`/university/${item.name}`} className='flex items-center gap-2'>
@@ -67,7 +70,9 @@ export default function BannerSearchInput() {
             </React.Fragment>
           ))}
           {search.length !== 0 && filteredList?.length === 0 && <Error height='h-24' />}
-        </div>}
+          <h1 className='text-xs text-gray-300'>Courses</h1>
+        </div>
+      }
 
     </div>
   )
