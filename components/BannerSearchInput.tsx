@@ -40,9 +40,15 @@ export default function BannerSearchInput() {
 
   let filteredList = useMemo(() => universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())), [search])
 
-  streams.forEach(element => {
-
-  });
+  let filteredStream = useMemo(() => streams.map(item => {
+    let selectedStream = item.streams.filter(item => item.toLowerCase().includes(search.toLowerCase()))
+    return selectedStream.map(x => (
+      {
+        university: item.universityName,
+        stream: x
+      }
+    ))
+  }), [search])
 
   return (
     <div className='flex flex-col gap-3' ref={mainSection}>
@@ -71,6 +77,19 @@ export default function BannerSearchInput() {
           ))}
           {search.length !== 0 && filteredList?.length === 0 && <Error height='h-24' />}
           <h1 className='text-xs text-gray-300'>Courses</h1>
+          {
+            ...filteredStream.map((item, idx) => (
+              item.length !== 0 &&
+              <React.Fragment key={idx}>
+                <div className='space-y-1 py-1'>
+                  <h1 className='text-lg font-semibold text-green-600'>{item[0]?.stream}</h1>
+                  <p className='text-sm text-green-600'>{item[0]?.university}</p>
+                </div>
+                <div className="h-0.5 bg-gray-100"></div>
+              </React.Fragment>
+            ))
+          }
+          {filteredStream[0].length === 0 && <Error height='h-24' />}
         </div>
       }
 
