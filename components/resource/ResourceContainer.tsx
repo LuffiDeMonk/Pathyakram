@@ -16,7 +16,7 @@ const ResourceLinks = [
     {
         id: 3,
         title: 'Notes',
-        link: '/'
+        link: '/notes/notes-id'
     }
 ]
 
