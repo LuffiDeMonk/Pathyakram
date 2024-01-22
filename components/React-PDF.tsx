@@ -3,6 +3,10 @@
 
 import React, { useState } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
+import ArrowRight from './icons/ArrowRight';
+import ArrowLeft from './icons/ArrowLeft';
+import PDFLoading from './PDFLoading';
+import PDFError from './PDFError';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
@@ -12,6 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 export default function ReactPDF() {
     const [numPages, setNumPages] = useState(0);
     const [pageNumber, setPageNumber] = useState(1);
+    const [loading, setLoading] = useState(false)
 
     function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
         setNumPages(numPages);
@@ -29,18 +34,34 @@ export default function ReactPDF() {
         changePage(+1)
     }
     return (
-        <div className="max-w-screen-lg mx-auto bg-green-400">
-            <Document
-                loading={<div className='text-center h-full flex items-center justify-center'><p>Loading</p></div>}
-                file={{
-                    url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
-                }}
-                onLoadSuccess={onDocumentLoadSuccess}>
-                <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
-                <p>{pageNumber} / {numPages}</p>
-            </Document>
-            <button onClick={changePageNext} hidden={pageNumber >= numPages}>Next Page</button>
-            <button onClick={changePageBack} hidden={pageNumber <= 1}>Prev Page</button>
-        </div>
+        <>
+            {/* hide the control buttons while the pdf is loading for the first time */}
+            {loading && <div className="flex items-center justify-between my-6">
+                <button disabled={pageNumber <= 1} onClick={changePageBack} className='p-2 bg-green-600 text-white font-semibold rounded-full flex items-center justify-center'>
+                    <ArrowLeft />
+                </button>
+                <div>
+                    {`${pageNumber} of ${numPages}`}
+                </div>
+                <button disabled={pageNumber >= numPages} onClick={changePageNext} className='p-2 bg-green-600 text-white font-semibold rounded-full flex items-center justify-center'>
+                    <ArrowRight />
+                </button>
+            </div>}
+            <div className="border border-black lg:h-[45rem] overflow-scroll no-scrollbar">
+                <Document
+                    onLoadProgress={() => setLoading(true)}
+                    loading={<PDFLoading />}
+                    error={<PDFError />}
+                    file='/sample.pdf'
+                    onLoadSuccess={onDocumentLoadSuccess}>
+                    <Page
+                        loading={<PDFLoading />}
+                        scale={1.5}
+                        pageNumber={pageNumber}
+                        renderTextLayer={false}
+                        renderAnnotationLayer={false} />
+                </Document>
+            </div>
+        </>
     )
 }
