@@ -20,8 +20,11 @@ export default function Navbar() {
                 </Link>
 
                 {/* navlnks for desktop menu */}
-                <ul className='hidden md:flex items-center gap-10'>
+                <ul className='hidden md:flex items-center gap-4'>
 
+                    <Link href='/contact'>
+                        <li className='text-sm border border-white rounded-full px-4 py-1.5'>Contact Us</li>
+                    </Link>
                     <Link href='/request'>
                         <li className='text-sm border border-white rounded-full px-4 py-1.5'>Make a request</li>
                     </Link>
