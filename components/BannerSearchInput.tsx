@@ -48,7 +48,7 @@ export default function BannerSearchInput() {
         stream: x
       }
     ))
-  }), [search])
+  }).flat(), [search])
 
   return (
     <div className='flex flex-col gap-3' ref={mainSection}>
@@ -78,17 +78,17 @@ export default function BannerSearchInput() {
           {search.length !== 0 && filteredList?.length === 0 && <Error height='h-24' />}
           <h1 className='text-xs text-gray-300'>Courses</h1>
           {
-            filteredStream.flat().map((item, idx) => (
+            filteredStream.map((item, idx) => (
               <React.Fragment key={idx}>
-                <div className='space-y-1 py-1'>
+                <Link href={`/university/${item.university}/${item.stream}`} className='space-y-1 py-1'>
                   <h1 className='text-lg font-semibold text-green-600'>{item.stream}</h1>
                   <p className='text-sm text-green-600'>{item.university}</p>
-                </div>
+                </Link>
                 <div className="h-0.5 bg-gray-100"></div>
               </React.Fragment>
             ))
           }
-          {filteredStream.flat().length === 0 && <Error height='h-24' />}
+          {search.length !== 0 && filteredStream.length === 0 && <Error height='h-24' />}
         </div>
       }
 
