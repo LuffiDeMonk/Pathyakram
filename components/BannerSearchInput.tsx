@@ -49,7 +49,6 @@ export default function BannerSearchInput() {
       }
     ))
   }), [search])
-  console.log(filteredStream.flat())
 
   return (
     <div className='flex flex-col gap-3' ref={mainSection}>
