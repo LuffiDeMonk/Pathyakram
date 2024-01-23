@@ -1,7 +1,12 @@
-import React from 'react'
+import type { Metadata } from 'next'
 import Container from '../../../components/Container'
 import PDFViewer from '@/components/PDFViewer'
 import ReactPDF from '@/components/React-PDF'
+
+export const metadata: Metadata = {
+    title: 'Pathyakrama | Syllabus',
+    description: 'This page gives you information regarding the syllabus of a particular subject selected by the user'
+}
 
 export default function page() {
     return (

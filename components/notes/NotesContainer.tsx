@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Container from '../Container'
 import ViewIcon from '../icons/ViewIcon'
 import { Transition, Dialog } from '@headlessui/react'
-import PDFViewer from '../PDFViewer'
+import ReactPDF from '../React-PDF'
 
 export default function NotesContainer() {
 
@@ -59,7 +59,7 @@ export default function NotesContainer() {
                                         leaveTo="opacity-0 scale-95"
                                     >
                                         <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
-                                            <PDFViewer />
+                                            <ReactPDF />
                                         </Dialog.Panel>
                                     </Transition.Child>
                                 </div>
