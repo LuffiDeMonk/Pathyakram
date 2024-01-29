@@ -6,11 +6,21 @@ import SubjectContainer from '@/components/subject/SubjectContainer'
 
 import React from 'react'
 
-export default function page({ params }: { params: { slug: string[] } }) {
+export default function page({ params, searchParams }: {
+    params: {
+        slug: string[],
+    }
+    searchParams?: {
+        q?: string
+    }
+}) {
+    let searchQuery = searchParams?.q || ''
+
+
     if (params.slug.length === 1) {
         return (
             <Container>
-                <StreamContainer universityName={params.slug} />
+                <StreamContainer universityName={params.slug} searchParams={searchQuery} />
             </Container>
         )
     }

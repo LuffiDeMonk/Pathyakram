@@ -5,7 +5,7 @@ import { Navlinks } from '@/constant'
 
 export default function Footer() {
     return (
-        <section className='bg-green-50 pt-20 pb-4 text-green-600'>
+        <section className='bg-gray-50 pt-20 pb-4 text-green-600'>
             <div className="max-w-screen-lg mx-auto flex flex-wrap justify-between gap-10 px-3 lg:px-0">
                 <div className='max-w-72'>
                     <h1 className='text-2xl sm:text-4xl font-extrabold text-green-600'>Pathyakrama</h1>

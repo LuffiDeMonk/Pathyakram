@@ -7,10 +7,15 @@ export const metadata: Metadata = {
     description: "This page contains information about the universitites and all the courses and subjects that falls under the university"
 }
 
-export default function page() {
+export default function page({ searchParams }: {
+    searchParams?: {
+        q?: string
+    }
+}) {
+    const search = searchParams?.q || ""
     return (
         <Container>
-            <UniversityContainer />
+            <UniversityContainer search={search} />
         </Container>
     )
 }

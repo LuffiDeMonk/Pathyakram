@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react'
 import StreamCard from './StreamCard'
 import { streams } from '@/constant'
 import Error from '../Warning'
+import SearchInput from '../SearchInput'
 
 type StreamData = {
 
@@ -21,8 +22,7 @@ type StreamData = {
 //     return response.json()
 // }
 
-export default function StreamContainer({ universityName }: { universityName: string[] }) {
-    const [search, setSearch] = useState('')
+export default function StreamContainer({ universityName, searchParams }: { universityName: string[], searchParams: string }) {
     // const streamData: StreamData[] = await getStreamData(universityName[0])
     // if (streamData.length === 0) {
     //     return <h2>No data</h2>
@@ -32,16 +32,16 @@ export default function StreamContainer({ universityName }: { universityName: st
 
 
     let filteredCourses = useMemo(() => {
-        return filteredData[0].streams.filter(item => item.toLowerCase().includes(search.toLowerCase()))
+        return filteredData[0].streams.filter(item => item.toLowerCase().includes(searchParams.toLowerCase()))
 
-    }, [search, filteredData])
+    }, [searchParams, filteredData])
 
 
     return (
         <>
             <div className='flex flex-col gap-3 md:gap-0 md:flex-row md:items-center md:justify-between'>
                 <h1 className='text-xl font-semibold text-green-500'>Faculty</h1>
-                <input onChange={e => setSearch(e.target.value)} type="text" placeholder='Search for available courses' className='px-5 py-2 rounded-full w-full md:w-80 border-2 border-gray-300 outline-none focus:outline-none' />
+                <SearchInput />
             </div>
             <div className="min-h-[60vh]">
                 {filteredCourses.length !== 0 ? (<>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export default function NewsCard() {
@@ -9,7 +10,7 @@ export default function NewsCard() {
                 <h2 className='text-2xl font-bold line-clamp-1'>News heading</h2>
                 <p className='text-sm line-clamp-3'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta ratione, ea ad enim, voluptatum maxime quam debitis voluptas repellat officia nostrum quibusdam recusandae rem esse nesciunt explicabo autem vitae non.</p>
                 {/* link to read full news */}
-                <p className='text-green-400 font-semibold text-sm mt-2'>Read more</p>
+                <Link href='/blogs/2' className='text-green-400 font-semibold text-sm mt-2'>Read more</Link>
             </div>
         </div>
     )
