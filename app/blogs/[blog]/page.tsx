@@ -11,7 +11,7 @@ export default function page() {
             <div className="my-2 lg:my-5 flex items-center gap-2">
                 <div className="flex items-center gap-2 text-gray-300">
                     <CalenderIcon />
-                    <p className='text-sm'>02 June, 2024</p>
+                    <p className='text-sm'>02 June, 2023</p>
                 </div>
                 <div className="text-sm text-gray-300">|</div>
                 <div className="flex items-center gap-2 text-gray-300">
