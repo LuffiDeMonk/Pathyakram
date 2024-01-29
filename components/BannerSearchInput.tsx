@@ -61,7 +61,7 @@ export default function BannerSearchInput() {
       {/* suggestion popup, this will only show when the user starts typing on the input */}
 
       {search.length !== 0 &&
-        <div ref={popupRef} className={`absolute left-1/2 -translate-x-1/2 top-48 w-80 md:w-[40rem] rounded-lg bg-white max-h-80 shadow-lg overflow-y-auto p-4`}>
+        <div ref={popupRef} className={`absolute left-1/2 -translate-x-1/2 top-48 w-80 md:w-[40rem] rounded-lg bg-white max-h-80 shadow-lg overflow-y-auto p-4 no-scrollbar`}>
           <h1 className='text-xs text-gray-300'>University</h1>
           {filteredList?.map(item => (
             <React.Fragment key={item.location}>
