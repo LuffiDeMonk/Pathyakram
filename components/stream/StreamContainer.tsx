@@ -31,10 +31,7 @@ export default function StreamContainer({ universityName, searchParams }: { univ
     let filteredData = streams.filter((item) => item.universityName.toLowerCase() === universityName[0].replaceAll("%20", " ").toLowerCase())
 
 
-    let filteredCourses = useMemo(() => {
-        return filteredData[0].streams.filter(item => item.toLowerCase().includes(searchParams.toLowerCase()))
-
-    }, [searchParams, filteredData])
+    let filteredCourses = filteredData[0].streams.filter(item => item.toLowerCase().includes(searchParams.toLowerCase()))
 
 
     return (

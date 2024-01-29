@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo, useState } from 'react'
+import React from 'react'
 import UniversityCard from './UniversityCard'
 import { universities } from '@/constant';
 import Error from '../Warning';
@@ -23,7 +23,7 @@ type UniversityData = {
 
 export default function UniversityContainer({ search }: { search: string }) {
     // const data: UniversityData[] = await getUniversityData();
-    let filteredUniversity = useMemo(() => universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())), [search])
+    let filteredUniversity = universities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
 
     return (
         <>
