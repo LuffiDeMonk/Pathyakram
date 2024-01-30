@@ -28,7 +28,7 @@ export default function UniversityContainer({ search }: { search: string }) {
     return (
         <>
             <div className='flex flex-col gap-3 md:gap-0 md:flex-row md:items-center md:justify-between'>
-                <h1 className='text-xl font-semibold text-green-500'>University</h1>
+                <h1 className='text-xl font-semibold text-green-500'>Universities</h1>
                 <SearchInput />
             </div>
             <div className='min-h-[60vh]'>
