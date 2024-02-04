@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Container from '../../components/Container'
 import UniversityContainer from '../../components/university/UniversityContainer'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
     title: "Pathyakrama | University",
@@ -14,8 +15,11 @@ export default function page({ searchParams }: {
 }) {
     const search = searchParams?.q || ""
     return (
-        <Container>
-            <UniversityContainer search={search} />
-        </Container>
+        <>
+            <Navbar />
+            <Container>
+                <UniversityContainer search={search} />
+            </Container>
+        </>
     )
 }

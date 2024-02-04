@@ -3,6 +3,7 @@ import Notice from "@/components/Notice";
 import UniversitySlider from "@/components/UniversitySlider";
 import Banner from "@/components/Banner";
 import PlayWithAi from "@/components/PlayWithAi";
+import Navbar from "@/components/Navbar";
 
 
 
@@ -18,6 +19,7 @@ import PlayWithAi from "@/components/PlayWithAi";
 export default async function Home() {
   return (
     <>
+      <Navbar />
       <Banner isMainpage={true} />
       <PlayWithAi />
       <Advertisment />

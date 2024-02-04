@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import NotesContainer from '@/components/notes/NotesContainer'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
     title: "Pathyakrama | Notes",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function page() {
     return (
         <>
+            <Navbar />
             <NotesContainer />
         </>
     )

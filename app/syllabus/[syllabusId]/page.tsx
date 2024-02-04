@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Container from '../../../components/Container'
 import PDFViewer from '@/components/PDFViewer'
 import ReactPDF from '@/components/React-PDF'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
     title: 'Pathyakrama | Syllabus',
@@ -10,11 +11,14 @@ export const metadata: Metadata = {
 
 export default function page() {
     return (
-        <Container>
-            <div className='mb-12'>
-                <h1 className='text-xl font-semibold text-green-500 mb-4'>Syllabus</h1>
-                <ReactPDF />
-            </div>
-        </Container>
+        <>
+            <Navbar />
+            <Container>
+                <div className='mb-12'>
+                    <h1 className='text-xl font-semibold text-green-500 mb-4'>Syllabus</h1>
+                    <ReactPDF />
+                </div>
+            </Container>
+        </>
     )
 }

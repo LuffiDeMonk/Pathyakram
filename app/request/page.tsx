@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Banner from '@/components/Banner'
 import RequestWrapper from '@/components/request/RequestWrapper'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
     title: 'Pathyakrama | Request',
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function page() {
     return (
         <>
+            <Navbar />
             <Banner isMainpage={false} />
             <RequestWrapper />
         </>

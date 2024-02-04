@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Container from '@/components/Container'
 import QuestionBankContainer from '@/components/questionbank/QuestionBankContainer'
+import Navbar from '@/components/Navbar'
 
 
 export const metadata: Metadata = {
@@ -11,11 +12,14 @@ export const metadata: Metadata = {
 export default function page() {
 
     return (
-        <Container>
-            <>
-                <h1 className='text-xl font-semibold text-green-500'>Question Bank</h1>
-                <QuestionBankContainer />
-            </>
-        </Container>
+        <>
+            <Navbar />
+            <Container>
+                <>
+                    <h1 className='text-xl font-semibold text-green-500'>Question Bank</h1>
+                    <QuestionBankContainer />
+                </>
+            </Container>
+        </>
     )
 }
