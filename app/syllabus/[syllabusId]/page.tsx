@@ -3,6 +3,7 @@ import Container from '../../../components/Container'
 import PDFViewer from '@/components/PDFViewer'
 import ReactPDF from '@/components/React-PDF'
 import Navbar from '@/components/Navbar'
+import CyntlerPdf from '@/components/CyntlerPdf'
 
 export const metadata: Metadata = {
     title: 'Pathyakrama | Syllabus',
@@ -16,7 +17,8 @@ export default function page() {
             <Container>
                 <div className='mb-12'>
                     <h1 className='text-xl font-semibold text-green-500 mb-4'>Syllabus</h1>
-                    <ReactPDF />
+                    {/* <ReactPDF /> */}
+                    <CyntlerPdf />
                 </div>
             </Container>
         </>

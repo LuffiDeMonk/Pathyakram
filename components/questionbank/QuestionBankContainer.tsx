@@ -4,6 +4,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import PDFViewer from '@/components/PDFViewer'
 import ReactPDF from '@/components/React-PDF'
 import ViewIcon from '@/components/icons/ViewIcon'
+import CyntlerPdf from '../CyntlerPdf'
 
 
 export default function QuestionBankContainer() {
@@ -54,7 +55,8 @@ export default function QuestionBankContainer() {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full p-2 max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
-                                    <ReactPDF />
+                                    {/* <ReactPDF /> */}
+                                    <CyntlerPdf />
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
