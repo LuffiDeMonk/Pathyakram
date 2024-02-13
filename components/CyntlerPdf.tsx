@@ -8,7 +8,7 @@ type Props = {}
 
 export default function CyntlerPdf({ }: Props) {
     const doc = [
-        { uri: "https://firebasestorage.googleapis.com/v0/b/blog-app-a6529.appspot.com/o/images?alt=media&token=0c5b2746-34c5-4571-83a5-2e2304252987" }
+        { uri: "https://firebasestorage.googleapis.com/v0/b/blog-app-a6529.appspot.com/o/pdf%2Fsample.pdf?alt=media&token=fd694272-e5c7-4080-8d66-f08849bdf246" }
     ]
     return (
         <div className="overflow-scroll no-scrollbar">
